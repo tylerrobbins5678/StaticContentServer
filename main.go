@@ -11,6 +11,7 @@ func main() {
 
 	required_envs := []string{
 		"STATICCONTENTSERVER_PORT",
+		"STATICCONTENTSERVER_BASE_PATH",
 	}
 
 	for _, r := range required_envs {

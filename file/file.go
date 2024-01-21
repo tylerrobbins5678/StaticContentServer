@@ -10,8 +10,9 @@ import (
 // if it is a dir, send file data and dirs
 // if not either, return 404
 func HandleItem(c *gin.Context) {
-	baseDir := "V:"
-	path := baseDir + c.Request.URL.Path
+	baseDir := os.Getenv("STATICCONTENTSERVER_BASE_PATH")
+	path := c.Param("filepath")
+	path = baseDir + path
 	info, err := os.Stat(path)
 	if err != nil {
 		// path/to/whatever exists
