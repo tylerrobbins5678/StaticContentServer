@@ -1,6 +1,7 @@
 package file
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -15,7 +16,7 @@ func HandleItem(c *gin.Context) {
 	path = baseDir + path
 	info, err := os.Stat(path)
 	if err != nil {
-		// path/to/whatever exists
+		fmt.Println(err)
 		c.File(path)
 		return
 	}
