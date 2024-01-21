@@ -25,7 +25,7 @@ func main() {
 
 	r := gin.Default()
 	r.GET("/", func(c *gin.Context) {
-		c.String(200, "Thank you for visiting.  <br>  <br>  This page is still in development and coming soon")
+		c.String(200, "Thank you for visiting. This page is still in development and coming soon")
 	})
 	r.GET("/static/*filepath", file.HandleItem)
 	r.Run(":" + os.Getenv("STATICCONTENTSERVER_PORT"))
