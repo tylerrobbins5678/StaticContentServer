@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"staticcontentserver/file"
 
@@ -17,6 +18,8 @@ func main() {
 	for _, r := range required_envs {
 		if os.Getenv(r) == "" {
 			panic(r + " not in envirenment")
+		} else {
+			fmt.Println(r + " : " + os.Getenv(r))
 		}
 	}
 
