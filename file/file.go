@@ -13,7 +13,10 @@ import (
 func HandleItem(c *gin.Context) {
 	baseDir := os.Getenv("STATICCONTENTSERVER_BASE_PATH")
 	path := c.Param("filepath")
-	path = baseDir + path
+	if path == "" || path == "/" {
+		path = "index.html"
+	}
+	path = baseDir + "/" + path
 	info, err := os.Stat(path)
 	if err != nil {
 		fmt.Println(err)
