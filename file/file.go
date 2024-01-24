@@ -3,6 +3,7 @@ package file
 import (
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 )
@@ -13,6 +14,9 @@ import (
 func HandleItem(c *gin.Context) {
 	baseDir := os.Getenv("STATICCONTENTSERVER_BASE_PATH")
 	path := c.Param("filepath")
+	if strings.HasPrefix(path, "/static") {
+		path = path[:7]
+	}
 	if path == "" || path == "/" {
 		path = "index.html"
 	}
