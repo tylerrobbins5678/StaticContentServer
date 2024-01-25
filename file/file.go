@@ -27,7 +27,8 @@ func HandleItem(c *gin.Context) {
 		getFile(c, path)
 		return
 	}
-	c.Status(404)
+	c.File(baseDir + "/index.html")
+	// c.Status(404)
 }
 
 func getFile(c *gin.Context, dir string) {
