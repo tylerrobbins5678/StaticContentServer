@@ -24,11 +24,13 @@ func main() {
 	}
 
 	r := gin.Default()
-	//r.GET("/", func(c *gin.Context) {
-	//	c.File(os.Getenv("STATICCONTENTSERVER_BASE_PATH") + "/index.html")
-	//})
-	//r.GET("/static/*filepath", file.HandleItem)
+	r.GET("/", func(c *gin.Context) {
+		c.Redirect(302, "/portfolio/")
+		//c.File(os.Getenv("STATICCONTENTSERVER_BASE_PATH") + "/index.html")
+	})
+	r.GET("/static/*filepath", file.HandleItem)
+	r.GET("/portfolio/*filepath", file.HandleItem)
 	//r.GET("/assets/*filepath", file.HandleItem)
-	r.Any("/*filepath", file.HandleItem)
+	//r.Any("/*filepath", file.HandleItem)
 	r.Run(":" + os.Getenv("STATICCONTENTSERVER_PORT"))
 }
