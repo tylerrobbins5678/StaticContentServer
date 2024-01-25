@@ -30,7 +30,7 @@ func main() {
 	})
 	r.GET("/static/*filepath", file.HandleItem)
 	r.GET("/portfolio/*filepath", file.HandleItem)
-	//r.GET("/assets/*filepath", file.HandleItem)
+	r.GET("/assets/*filepath", file.HandleItem)
 	//r.Any("/*filepath", file.HandleItem)
 	r.Run(":" + os.Getenv("STATICCONTENTSERVER_PORT"))
 }
