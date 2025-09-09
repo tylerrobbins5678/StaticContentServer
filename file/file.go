@@ -25,7 +25,7 @@ func HandleItem(c *gin.Context) {
 		getFile(c, path)
 		return
 	}
-	// c.Status(404)
+	c.Status(404)
 }
 
 func getFile(c *gin.Context, dir string) {
